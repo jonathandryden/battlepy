@@ -15,4 +15,10 @@ class API(object):
 
     def get(self, path):
         url = 'https://' + self._region + '.' + self._host + path + 'locale=' + self._locale + '&apikey=' + self._api_key
-        return requests.get(url)
+        try:
+            resp = requests.get(url)
+            if resp.status_code != 200:
+                return "{'status': 'error', 'reason': '{}'}".format(resp.status_code)
+            return resp.json()
+        except:
+            return "{'status': 'error', 'reason': 'When in doubt, blow it up.'}"
