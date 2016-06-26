@@ -33,6 +33,14 @@ class WowApiTests(unittest.TestCase):
 
         self.assertTrue(boss_id == resp['id'])
 
+    def test_get_realm_leaderboard(self):
+        bnet = self.create_client().wow
+        realm_id = 'Medivh'
+        resp = bnet.get_realm_leaderboard(realm_id)
+
+        self.assertTrue(realm_id == resp['challenge'][0]['realm']['name'])
+
+
     # def test_realm_status(self):
     #     bnet = self.create_client().wow
     #     resp = bnet.get_realm_status()
