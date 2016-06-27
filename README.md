@@ -21,7 +21,7 @@ Register for an API key at https://dev.battle.net
 from battlepy.api_client import Client
 
 bnet = Client(API_KEY, REGION, LOCALE)
-resp = bnet.get_quest(13146)
+resp = bnet.wow.get_quest(13146)
 ```
 
 This will return a JSON object like below
