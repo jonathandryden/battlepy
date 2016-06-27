@@ -11,7 +11,7 @@ class WowApiTests(unittest.TestCase):
         bnet = self.create_client().wow
         achievment_id = 2144
         resp = bnet.get_achievement(achievment_id)
-
+        print(resp)
         self.assertTrue(achievment_id == resp['id'])
 
     def test_get_auctions(self):
@@ -40,9 +40,25 @@ class WowApiTests(unittest.TestCase):
 
         self.assertTrue(realm_id == resp['challenge'][0]['realm']['name'])
 
+    def test_get_region_leaderboard(self):
+        bnet = self.create_client().wow
+        realm_id = 'Medivh'
+        resp = bnet.get_region_leaderboard()
 
-    # def test_realm_status(self):
-    #     bnet = self.create_client().wow
-    #     resp = bnet.get_realm_status()
-    #
-    #     self.assertTrue(resp.status_code == 200)
+        self.assertTrue(len(resp['challenge']) > 0)
+
+    def test_get_character_profile(self):
+        bnet = self.create_client().wow
+        realm_id = 'Medivh'
+        char_name = 'Bob'
+        resp = bnet.get_character_data(realm_id, char_name)
+
+        self.assertTrue(char_name == resp['name'])
+
+    def test_get_character_achievements(self):
+        bnet = self.create_client().wow
+        realm_id = 'Medivh'
+        char_name = 'Bob'
+        resp = bnet.get_character_data(realm_id, char_name, 'achievements')
+
+        self.assertTrue(resp['achievementPoints'] >= 0)

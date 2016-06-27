@@ -21,7 +21,7 @@ class WorldOfWarcraft(API):
     def get_realm_leaderboard(self, realm):
         return self.get('/wow/challenge/{}?'.format(realm))
 
-    def get_region_leadboard(self, region):
+    def get_region_leaderboard(self):
         return self.get('/wow/challenge/region?')
 
     def get_character_data(self, realm, character_name, data_set = ''):

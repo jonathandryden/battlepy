@@ -5,6 +5,6 @@ from battlepy.wow import WorldOfWarcraft
 
 
 class Client(object):
-
-    def __init__(self, api_key = '', region = 'us', locale = 'en_US'):
+    # Defaults here or pass them via constructor
+    def __init__(self, api_key = '', region = '', locale = ''):
         self.wow = WorldOfWarcraft(api_key, region, locale)
