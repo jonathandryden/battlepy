@@ -39,7 +39,9 @@ This will return a JSON object like below
 
 ## License
 This library is copyright Jonathan Dryden and licensed for use under MIT.
+
 Please see LICENSE for more information.
 
 Battle.net, Warcraft, World of Warcraft, StarCraft and Diablo are copyrighted by Blizzard Entertainment, Inc.
+
 This library is neither endorsed by nor associated with Blizzard Entertainment, Inc.
